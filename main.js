@@ -43,7 +43,7 @@ function msg(msg){
 }
 
 
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://insta-api-gamma.now.sh/';
 
 const form = el('#user-details');
 form.addEventListener('submit',(event)=>{
@@ -76,12 +76,9 @@ form.addEventListener('submit',(event)=>{
 function processData(data){
 	let objectConstructor = ({}).constructor;
 	if(Array.isArray(data) && data[0].status===false){
-		console.log("errors");
 		msg(data);
 	}
 	else if(data.constructor === objectConstructor){
-		console.log(data);
-
 		if(data.alerts.length){
 			msg(data.alerts);
 		}
