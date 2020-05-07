@@ -1,0 +1,23 @@
+{
+	"name": "InstaDown - Instagram Pictures Downloader",
+	"short_name": "InstaDown",
+	"description": "Instagram pictures downloader.",
+	"icons": [
+		 {
+			  "src": "icon-192.png",
+			  "sizes": "192x192",
+			  "type": "image/png",
+			  "purpose": "any maskable"
+		 },
+		 {
+			  "src": "icon.png",
+			  "sizes": "512x512",
+			  "type": "image/png",
+			  "purpose": "any maskable"
+		 }
+	],
+	"start_url": "/",
+	"display": "fullscreen",
+	"theme_color": "#E91E63",
+	"background_color": "#FFFFFF"
+}
