@@ -9,13 +9,8 @@ function show(selector){
 	selector.style.display="";
 }
 
-// const LOAD_MORE_BTN = document.createElement('button');
-// LOAD_MORE_BTN.classList = "btn btn-small z-depth-0 grey lighten-3 black-text";
-// LOAD_MORE_BTN.setAttribute("onclick","loadMore()");
-// LOAD_MORE_BTN.innerHTML = "Load More";
 
 const LOAD_MORE_BTN = '<button class="btn btn-small z-depth-0 grey lighten-3 black-text" onclick="loadMore()">Load More</button>';
-
 
 const LOADING = '<div class="preloader-wrapper small active"><div div class="spinner-layer spinner-blue-only" ><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div>';
 
@@ -181,13 +176,3 @@ async function downloadImage(url,filename){
 		})
 		.catch(error => msg(error));
 }
-
-
-// window.onscroll = function(ev) {
-// 	const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-// 	// if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
-// 	if ((clientHeight + scrollTop) >= scrollHeight - 5) {
-// 		loadMore();
-// 		 // you're at the bottom of the page
-// 	}
-// };
