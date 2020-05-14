@@ -53,11 +53,11 @@ form.addEventListener('submit',(event)=>{
 	else{
 		fetch(API_URL+'/profile',{
 			method:'POST',
-			mode: 'cors',
+			mode: 'no-cors',
+			cache: 'no-cache',
 			body:JSON.stringify({username}),
 			headers:{
-				'content-type':'application/json',
-				'Access-Control-Allow-Origin': '*'
+				'content-type':'application/json'
 			}
 		})
 		.then(response => response.json())
@@ -72,11 +72,11 @@ form.addEventListener('submit',(event)=>{
 			else{
 				return fetch(API_URL+'/posts',{
 					method:'POST',
-					mode: 'cors',
+					mode: 'no-cors',
+					cache: 'no-cache',
 					body:JSON.stringify({username}),
 					headers:{
-						'content-type':'application/json',
-						'Access-Control-Allow-Origin': '*'
+						'content-type':'application/json'
 					}
 				});
 			}
@@ -131,11 +131,11 @@ async function loadMore(){
 
 	fetch(API_URL+'/posts',{
 		method:'POST',
-		mode: 'cors',
+		mode: 'no-cors',
+		cache: 'no-cache',
 		body:JSON.stringify({username:username,next:next}),
 		headers:{
-			'content-type':'application/json',
-			'Access-Control-Allow-Origin': '*'
+			'content-type':'application/json'
 		}
 	})
 	.then(response=>response.json())
@@ -170,7 +170,8 @@ async function downloadImage(url,filename){
 	}
 	filename = (!filename || filename=='')? 'InstaDown-'+Date.now() : filename;
 	await fetch(url,{
-		headers:{'Access-Control-Allow-Origin': '*'}
+		mode: 'no-cors',
+		cache: 'no-cache',
 	})
 		.then(response=>response.blob())
 		.then(blob=>{
