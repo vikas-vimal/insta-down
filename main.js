@@ -53,9 +53,11 @@ form.addEventListener('submit',(event)=>{
 	else{
 		fetch(API_URL+'/profile',{
 			method:'POST',
+			mode: 'cors',
 			body:JSON.stringify({username}),
 			headers:{
-				'content-type':'application/json'
+				'content-type':'application/json',
+				'Access-Control-Allow-Origin': '*'
 			}
 		})
 		.then(response => response.json())
@@ -70,9 +72,11 @@ form.addEventListener('submit',(event)=>{
 			else{
 				return fetch(API_URL+'/posts',{
 					method:'POST',
+					mode: 'cors',
 					body:JSON.stringify({username}),
 					headers:{
-						'content-type':'application/json'
+						'content-type':'application/json',
+						'Access-Control-Allow-Origin': '*'
 					}
 				});
 			}
@@ -127,9 +131,11 @@ async function loadMore(){
 
 	fetch(API_URL+'/posts',{
 		method:'POST',
+		mode: 'cors',
 		body:JSON.stringify({username:username,next:next}),
 		headers:{
-			'content-type':'application/json'
+			'content-type':'application/json',
+			'Access-Control-Allow-Origin': '*'
 		}
 	})
 	.then(response=>response.json())
@@ -163,7 +169,9 @@ async function downloadImage(url,filename){
 		msg({message:'Empty image URL'});
 	}
 	filename = (!filename || filename=='')? 'InstaDown-'+Date.now() : filename;
-	await fetch(url)
+	await fetch(url,{
+		headers:{'Access-Control-Allow-Origin': '*'}
+	})
 		.then(response=>response.blob())
 		.then(blob=>{
 			let dwImage = document.createElement('a');
